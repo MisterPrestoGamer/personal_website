@@ -1,0 +1,6 @@
+start ssh agent in background (IN THAT SPECIFIC COMMAND LINE)
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+put this command before something that requires ssh
+GIT_SSH_COMMAND='ssh -i ~/.ssh/id_prestoKey -o IdentitiesOnly=yes'
+e.g: GIT_SSH_COMMAND='ssh -i ~/.ssh/id_prestoKey -o IdentitiesOnly=yes' git push origin main
