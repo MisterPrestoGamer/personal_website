@@ -1,6 +1,7 @@
 import styles from './header.module.css';
 import { Link } from 'react-router';
 import { Moon, Sun } from 'lucide-react';
+
 export default function Header() {
   return (
     <div className={styles.header}>
