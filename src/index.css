@@ -4,4 +4,12 @@
 
 body {
   margin: 0;
+  background-color: #f2e9e4;
+  color: #22223b;
+  font-family: Helvetica, sans-serif;
+}
+
+.darkmode {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
