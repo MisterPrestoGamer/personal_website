@@ -9,10 +9,10 @@ import { useState } from "react";
 export default function App() {
   const [darkmode, setDarkmode] = useState(false);
   return (
-    <>
+    <div className={styles.app}>
       <Header darkmode={darkmode} setDarkmode={setDarkmode} />
-      <Outlet />
-      <Footer darkmode={darkmode} setDarkmode={setDarkmode} />
-    </>
+      <Outlet context={{ dm: darkmode }} />
+      <Footer darkmode={darkmode} />
+    </div>
   );
 }

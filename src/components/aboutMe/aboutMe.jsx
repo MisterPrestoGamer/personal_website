@@ -1,9 +1,10 @@
 import styles from "./aboutMe.module.css";
-import { Link } from "react-router";
+import { Link, useOutletContext } from "react-router";
 
 export default function AboutMe() {
+  const darkmode = useOutletContext().dm;
   return (
-    <div className={styles.aboutMe}>
+    <div className={darkmode ? `${styles.aboutMe} darkmode` : styles.aboutMe}>
       <h2 className={styles.title}>About Me</h2>
       <div className={styles.description}>
         {" "}
