@@ -20,13 +20,13 @@ body {
 
 .darkmode {
   z-index: 0;
-  background-color: #22223b;
+  background-color: #010111;
   color: #f2e9e4;
 }
 
 .altDarkmode {
   z-index: 0;
-  background-color: #4a4e69;
+  background-color: #060c35;
   color: #f2e9e4;
 }
 
