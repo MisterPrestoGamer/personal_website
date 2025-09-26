@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 import { Stars } from "lucide-react";
 
 export default function App() {
-  const [darkmode, setDarkmode] = useState(true);
+  const [darkmode, setDarkmode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+  );
 
   useEffect(() => {
     function placeStars() {
@@ -47,8 +49,22 @@ export default function App() {
       }
     }
 
-    placeStars();
-  }, []);
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        setDarkmode(event.matches);
+      });
+
+    if (darkmode) {
+      placeStars();
+    }
+
+    return () => {
+      for (let element of document.querySelectorAll(".star")) {
+        element.remove();
+      }
+    };
+  }, [darkmode]);
 
   return (
     <div className={`${styles.app} app`}>

@@ -19,19 +19,19 @@ body {
 }
 
 .darkmode {
-  z-index: -2;
+  z-index: 0;
   background-color: #22223b;
   color: #f2e9e4;
 }
 
 .altDarkmode {
-  z-index: -2;
+  z-index: 0;
   background-color: #4a4e69;
   color: #f2e9e4;
 }
 
 .star {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
