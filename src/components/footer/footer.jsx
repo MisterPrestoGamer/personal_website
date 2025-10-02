@@ -1,23 +1,30 @@
 import styles from "./footer.module.css";
-import { Copy } from "lucide-react";
+import { Copy, CopyCheck } from "lucide-react";
+import { useState } from "react";
+
+const EMAIL = 'milesnelwork1@gmail.com'
 
 export default function Footer({ darkmode }) {
-  async function setClipboard(event) {
-    const type = "text/plain";
-    const clipboardItemData = {
-      [type]: event.target.textContent,
-    };
-    const clipboardItem = new ClipboardItem(clipboardItemData);
-    await navigator.clipboard.write([clipboardItem]);
+  const [recentlyCoppied, setRecentlyCoppied] = useState(false);
+  async function setClipboard() {
+    await navigator.clipboard.writeText(EMAIL);
+    if (recentlyCoppied) return;
+    setRecentlyCoppied(true);
+    setTimeout(()=>{
+      setRecentlyCoppied(false);
+    }, 1500)
   }
 
   return (
     <div className={darkmode ? `${styles.footer} altDarkmode` : styles.footer}>
       <div className={styles.contactInfo}>
-        <button onClick={setClipboard} className={styles.email}>
+        <div className={styles.email} onClick={setClipboard}>
+        <div >
           milesnelwork1@gmail.com
-          <Copy size={"1.5vw"} />
-        </button>
+          
+        </div>
+        {recentlyCoppied ? <CopyCheck size={"1.5vh"} /> : <Copy size={"1.5vh"} />}
+        </div>
 
         <a
           className={styles.github}

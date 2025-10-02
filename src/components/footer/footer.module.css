@@ -6,7 +6,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1vw 0 1vw 0;
+  padding: 1vh 0 1vh 0;
+}
+
+.email button {
+  border:none;
+  background: none;
+  color: inherit;
 }
 
 .email,
@@ -23,7 +29,7 @@
   border: none;
   color: inherit;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1.5vh;
 }
 
 .email:hover,
@@ -31,4 +37,10 @@
 .github:hover {
   opacity: 70%;
   cursor: pointer;
+}
+
+.email:active,
+.copy:active,
+.github:active {
+  opacity: 100%;
 }
