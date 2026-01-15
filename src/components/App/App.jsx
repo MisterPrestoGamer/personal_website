@@ -14,7 +14,7 @@ export default function App() {
 
   useEffect(() => {
     function placeStars() {
-      let app = document.querySelector(".app");
+      const app = document.querySelector(".app");
       let starSize = "1px";
       let starPos = ["0vw", "0vw"];
       let starRotation = "0deg";
@@ -49,6 +49,48 @@ export default function App() {
       }
     }
 
+    function shootingStar() {
+
+
+      let side = Math.ceil(Math.random() * 4);
+      side = 1;
+      const app = document.querySelector('.app');
+      const star = document.createElement("div");
+      star.textContent = "*";
+      star.classList = "shootingStar";
+      let starSize = "40px";
+      let starPos = ["98%", "99%"];
+      switch (side) {
+        case 1:
+          starPos[0] = `${Math.ceil(Math.random() * 100)}%`
+          starPos[1] = `0%`
+          star.style = `transition: transform 1s; transform: translate(0, 100px);`
+          break;
+        case 2:
+          starPos[0] = `-2%`;
+          starPos[1] = `${Math.ceil(Math.random() * 100)}%`;
+          break;
+        case 3:
+          starPos[0] = `${Math.ceil(Math.random() * 100)}%`;
+          starPos[1] = `100%`;
+          break;
+        case 4: 
+          starPos[0] = `100%`
+          starPos[1] = `${Math.ceil(Math.random() * 100)}%`;
+          break;
+      }
+      let starRotation = "0deg";
+      let cssColor = "rgb(255, 255, 255)";
+      star.style.top = starPos[0];
+      star.style.left = starPos[1];
+      star.style.fontSize = starSize;
+      star.style.rotate = starRotation;
+      star.style.color = cssColor;
+      star.style.animation;
+      app.appendChild(star);
+      
+    }
+
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (event) => {
@@ -57,12 +99,14 @@ export default function App() {
 
     if (darkmode) {
       placeStars();
+      shootingStar();
     }
 
     return () => {
       for (let element of document.querySelectorAll(".star")) {
         element.remove();
       }
+      document.querySelector('.shootingStar').remove();
     };
   }, [darkmode]);
 
